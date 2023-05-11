@@ -62,5 +62,5 @@ stages:
             inputs:
               azureSubscription: 'Service'
               appType: webAppLinux
-              appName: 'webappcg'
+              appName: 'wincgg'
               package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
