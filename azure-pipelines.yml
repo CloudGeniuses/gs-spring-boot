@@ -8,12 +8,6 @@ trigger:
 
 variables:
 
-  # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '4c8e7db9-7472-409e-8b5a-49c63cab73e1'
-  
-  # Web app name
-  webAppName: 'java-spring-boot'
-
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
@@ -51,7 +45,7 @@ stages:
   jobs:
   - deployment: DeployLinuxWebApp
     displayName: Deploy Linux Web App
-    environment: 'development'
+    environment: 'prod'
     pool: 
       vmImage: $(vmImageName)
     strategy:
@@ -66,7 +60,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: gs-spring-boot'
             inputs:
-              azureSubscription: $(azureSubscription)
+              azureSubscription: 'Service'
               appType: webAppLinux
-              appName: $(webAppName)
+              appName: 'webappcg'
               package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
