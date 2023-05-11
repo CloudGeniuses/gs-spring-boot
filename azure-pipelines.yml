@@ -61,6 +61,5 @@ stages:
             displayName: 'Azure Web App Deploy: gs-spring-boot'
             inputs:
               azureSubscription: 'Service'
-              appType: webAppLinux
               appName: 'wincgg'
               package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
